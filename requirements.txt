@@ -15,5 +15,4 @@ torchaudio
 urllib3
 transformers
 dlib
-soundfile
 huggingface_hub

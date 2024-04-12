@@ -1,7 +1,5 @@
 import os
-import io
 import cv2
-import hashlib
 import random
 import shutil
 import subprocess
@@ -9,7 +7,6 @@ import subprocess
 import torch
 import torchaudio
 import folder_paths
-import soundfile as sf
 
 import numpy as np
 from PIL import Image
@@ -192,55 +189,6 @@ def cv_frame_generator(video):
             yield prev_frame
     finally:
         video_cap.release()
-
-
-class LoadAudio:
-    @classmethod
-    def INPUT_TYPES(s):
-        audio_extensions = ["wav", "mp3", "flac"]
-        input_dir = folder_paths.get_input_directory()
-        files = []
-        for f in os.listdir(input_dir):
-            if os.path.isfile(os.path.join(input_dir, f)):
-                file_parts = f.split('.')
-                if len(file_parts) > 1 and (file_parts[-1] in audio_extensions):
-                    files.append(f)
-        return {"required": {
-                    "audio": (sorted(files),),
-                     },}
-
-    CATEGORY = "Dreamtalk"
-
-    RETURN_TYPES = (any, "INT",)
-    RETURN_NAMES = ("audio", "sample_rate",)
-    FUNCTION = "load_audio"
-
-
-    def load_audio(self, audio):
-        file = folder_paths.get_annotated_filepath(audio)
-        ext = file.lower().split('.')[-1] if '.' in file else 'null'
-
-        if ext in ["wav", "mp3", "flac"]:
-            audio_samples, sample_rate =sf.read(file)
-        else:
-            raise Exception(f'File format "{ext}" is not supported')
-
-        return (list(audio_samples), sample_rate)
-    
-    @classmethod
-    def IS_CHANGED(self, audio, **kwargs):
-        audio_path = folder_paths.get_annotated_filepath(audio)
-        m = hashlib.sha256()
-        with open(audio_path, 'rb') as f:
-            m.update(f.read())
-        return m.digest().hex()
-
-    @classmethod
-    def VALIDATE_INPUTS(self, audio, **kwargs):
-        if not folder_paths.exists_annotated_filepath(audio):
-            return "Invalid audio file: {}".format(audio)
-
-        return True
     
 class DreamTalk:
     @classmethod
@@ -397,11 +345,9 @@ class DreamTalk:
         return (images, len(images), 25)
 
 NODE_CLASS_MAPPINGS = {
-    "D_LoadAudio": LoadAudio,
     "D_DreamTalk": DreamTalk,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "D_LoadAudio": "Load Audio",
     "D_DreamTalk": "Dream Talk",
 }

@@ -1,6 +1,6 @@
 {
-  "last_node_id": 183,
-  "last_link_id": 375,
+  "last_node_id": 184,
+  "last_link_id": 376,
   "nodes": [
     {
       "id": 93,
@@ -330,47 +330,6 @@
       },
       "widgets_values": [
         "low quality, worst quality,"
-      ]
-    },
-    {
-      "id": 81,
-      "type": "PreviewTextNode",
-      "pos": [
-        484,
-        1204
-      ],
-      "size": {
-        "0": 444.7550964355469,
-        "1": 173.09912109375
-      },
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 338,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewTextNode"
-      },
-      "widgets_values": [
-        "",
-        "a man in a suit and tie standing in front of a mirror, portrait of magical blond prince, extremely pale blond hair, blonde guy, an elf in a suit, xqc, johan liebert mixed with dante, xqcow, rutkowski |, discord profile picture, dressed in a suit, suit ， perfect face, in a suit"
       ]
     },
     {
@@ -815,7 +774,7 @@
       ],
       "size": {
         "0": 315,
-        "1": 222
+        "1": 246
       },
       "flags": {},
       "order": 26,
@@ -854,7 +813,8 @@
         false,
         10,
         1,
-        1
+        1,
+        false
       ]
     },
     {
@@ -975,53 +935,6 @@
         "Node name for S&R": "VHS_GetImageCount"
       },
       "widgets_values": {}
-    },
-    {
-      "id": 161,
-      "type": "ClipInterrogator",
-      "pos": [
-        71,
-        1142
-      ],
-      "size": {
-        "0": 315,
-        "1": 244
-      },
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 335
-        }
-      ],
-      "outputs": [
-        {
-          "name": "prompt",
-          "type": "STRING",
-          "links": [
-            337,
-            338
-          ],
-          "shape": 6,
-          "slot_index": 0
-        },
-        {
-          "name": "random_samples",
-          "type": "STRING",
-          "links": null,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ClipInterrogator"
-      },
-      "widgets_values": [
-        "fast",
-        "off"
-      ]
     },
     {
       "id": 53,
@@ -2042,6 +1955,96 @@
           "params": {}
         }
       }
+    },
+    {
+      "id": 161,
+      "type": "ClipInterrogator",
+      "pos": [
+        71,
+        1142
+      ],
+      "size": {
+        "0": 315,
+        "1": 244
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 335
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            337,
+            376
+          ],
+          "shape": 6,
+          "slot_index": 0
+        },
+        {
+          "name": "random_samples",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ClipInterrogator"
+      },
+      "widgets_values": [
+        "fast",
+        "off",
+        "a man in a suit and tie standing in front of a mirror, portrait of magical blond prince, extremely pale blond hair, blonde guy, an elf in a suit, xqc, johan liebert mixed with dante, xqcow, rutkowski |, discord profile picture, dressed in a suit, suit ， perfect face, in a suit",
+        "[]",
+        ""
+      ]
+    },
+    {
+      "id": 184,
+      "type": "ACE_TextPreview",
+      "pos": [
+        511,
+        1217
+      ],
+      "size": [
+        315,
+        76
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 376,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ACE_TextPreview"
+      },
+      "widgets_values": [
+        "",
+        "a man in a suit and tie standing in front of a mirror, portrait of magical blond prince, extremely pale blond hair, blonde guy, an elf in a suit, xqc, johan liebert mixed with dante, xqcow, rutkowski |, discord profile picture, dressed in a suit, suit ， perfect face, in a suit"
+      ]
     }
   ],
   "links": [
@@ -2350,14 +2353,6 @@
       "STRING"
     ],
     [
-      338,
-      161,
-      0,
-      81,
-      0,
-      "STRING"
-    ],
-    [
       339,
       20,
       0,
@@ -2524,6 +2519,14 @@
       176,
       1,
       "VHS_AUDIO"
+    ],
+    [
+      376,
+      161,
+      0,
+      184,
+      0,
+      "STRING"
     ]
   ],
   "groups": [],
