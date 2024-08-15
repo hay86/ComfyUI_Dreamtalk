@@ -2,7 +2,7 @@
 name = "comfyui_dreamtalk"
 description = "Unofficial implementation of [a/dreamtalk](https://github.com/ali-vilab/dreamtalk) for ComfyUI"
 version = "1.0.0"
-license = "LICENSE"
+license = { file = "LICENSE" }
 dependencies = ["yacs", "scipy", "scikit-image", "scikit-learn", "PyYAML", "Pillow", "numpy", "opencv-python", "imageio", "ffmpeg-python", "av", "torch", "torchvision", "torchaudio", "urllib3", "transformers", "dlib", "huggingface_hub"]
 
 [project.urls]
